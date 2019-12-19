@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder
 import com.juniar.ancodev.sinauneh.BuildConfig
 import com.juniar.ancodev.sinauneh.BuildConfig.BASE_URL
 import com.juniar.ancodev.sinauneh.NetworkInterceptor
+import com.juniar.ancodev.sinauneh.network.NetworkRepository
 import com.juniar.ancodev.sinauneh.network.NetworkService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,6 +26,7 @@ object NetworkModule {
             single { NetworkInterceptor() }
             single { providesRetrofit(get(), get()) }
             single { providesNetworkService(get()) }
+            single { providesNetworkRepository(get()) }
         }
     }
 
@@ -57,4 +59,7 @@ object NetworkModule {
         .addConverterFactory(GsonConverterFactory.create(gson))
         .client(okHttpClient)
         .build()
+
+    fun providesNetworkRepository(networkService: NetworkService) =
+        NetworkRepository(networkService)
 }
