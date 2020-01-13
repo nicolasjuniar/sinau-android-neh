@@ -1,4 +1,4 @@
-package com.juniar.ancodev.sinauneh
+package com.juniar.ancodev.sinauneh.feature.post
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +11,7 @@ import com.juniar.ancodev.sinauneh.utils.transformErrorResponse
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class MainViewModel(private val networkRepository: NetworkRepository) : ViewModel() {
+class PostViewModel(private val networkRepository: NetworkRepository) : ViewModel() {
 
     val liveDataPost = MutableLiveData<ArrayList<PostModel>>()
 
@@ -22,7 +22,7 @@ class MainViewModel(private val networkRepository: NetworkRepository) : ViewMode
 
     fun getAllPost() = viewModelScope.launch {
         networkRepository.getAllPosts().getResult({
-            it.body().let {
+            it.body()?.let {
                 liveDataPost.postValue(it)
             }
         }, {

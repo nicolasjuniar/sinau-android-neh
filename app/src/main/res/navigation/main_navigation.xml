@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/navigation_post">
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.juniar.ancodev.sinauneh.HomeActivity"
+        android:label="HomeActivity" />
+
+    <fragment
+        android:id="@+id/navigation_post"
+        android:name="com.juniar.ancodev.sinauneh.feature.post.PostFragment"
+        android:label="@string/title_post" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.juniar.ancodev.sinauneh.feature.profile.ProfileFragment"
+        android:label="@string/title_profile" />
+</navigation>
