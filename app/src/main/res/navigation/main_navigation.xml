@@ -7,16 +7,24 @@
 
     <activity
         android:id="@+id/homeActivity"
-        android:name="com.juniar.ancodev.sinauneh.HomeActivity"
+        android:name="com.juniar.ancodev.sinauneh.feature.MainActivity"
         android:label="HomeActivity" />
 
     <fragment
         android:id="@+id/navigation_post"
         android:name="com.juniar.ancodev.sinauneh.feature.post.PostFragment"
-        android:label="@string/title_post" />
+        android:label="@string/title_post" >
+        <action
+            android:id="@+id/action_navigation_post_to_detailPostActivity"
+            app:destination="@id/detailPostActivity" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.juniar.ancodev.sinauneh.feature.profile.ProfileFragment"
         android:label="@string/title_profile" />
+    <activity
+        android:id="@+id/detailPostActivity"
+        android:name="com.juniar.ancodev.sinauneh.feature.detailpost.DetailPostActivity"
+        android:label="DetailPostActivity" />
 </navigation>
