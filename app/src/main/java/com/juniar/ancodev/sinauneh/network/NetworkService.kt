@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface NetworkService {
     @GET("posts")
-    suspend fun getAllPosts(): Response<ArrayList<PostModel>>
+    suspend fun getAllPosts(): Response<List<PostModel>>
 
     @POST("auth/login")
     suspend fun login(

@@ -1,5 +1,8 @@
 package com.juniar.ancodev.sinauneh.module
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
+import org.koin.android.ext.koin.androidContext
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -8,6 +11,7 @@ import com.juniar.ancodev.sinauneh.BuildConfig.BASE_URL
 import com.juniar.ancodev.sinauneh.NetworkInterceptor
 import com.juniar.ancodev.sinauneh.network.NetworkRepository
 import com.juniar.ancodev.sinauneh.network.NetworkService
+import com.juniar.ancodev.sinauneh.utils.DiffCallback
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.module.Module
@@ -22,17 +26,19 @@ object NetworkModule {
         return module {
             single { providesGson() }
             single { providesLoggingInterceptor() }
-            single { providesOkHttpClient(get()) }
+            single { providesOkHttpClient(get(), androidContext()) }
             single { NetworkInterceptor() }
             single { providesRetrofit(get(), get()) }
             single { providesNetworkService(get()) }
             single { providesNetworkRepository(get()) }
+            single { DiffCallback() }
         }
     }
 
     private val REQUEST_TIMEOUT = 10
 
-    fun providesNetworkService(retrofit: Retrofit): NetworkService = retrofit.create(NetworkService::class.java)
+    fun providesNetworkService(retrofit: Retrofit): NetworkService =
+        retrofit.create(NetworkService::class.java)
 
     fun providesGson() = GsonBuilder()
         .setLenient()
@@ -46,12 +52,13 @@ object NetworkModule {
         }
     }
 
-    fun providesOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor) =
+    fun providesOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor, context: Context) =
         OkHttpClient.Builder()
             .readTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .writeTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .connectTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(ChuckerInterceptor(context))
             .build()
 
     fun providesRetrofit(okHttpClient: OkHttpClient, gson: Gson) = Retrofit.Builder()
