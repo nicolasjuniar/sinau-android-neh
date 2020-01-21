@@ -1,5 +1,6 @@
 package com.juniar.ancodev.sinauneh.feature.post
 
+import android.os.Parcelable
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -15,11 +16,14 @@ import timber.log.Timber
 
 class PostViewModel(private val networkRepository: NetworkRepository) : ViewModel() {
 
+
     val liveDataPost = MutableLiveData<List<PostModel>>()
 
     private val testActive = SingleLiveEvent<Boolean>()
 
     private val isFirst = MutableLiveData<Boolean>()
+
+    var state: Parcelable? = null
 
     init {
         testActive.value = false

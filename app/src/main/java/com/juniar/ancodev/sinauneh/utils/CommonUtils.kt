@@ -11,10 +11,9 @@ import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Response
 
-fun <T> LiveData<T>.onChangeValue(lifeCycleOwner: LifecycleOwner, onPostValue: (value: T) -> Unit) {
-    this.observe(lifeCycleOwner, Observer<T> { value ->
-        value?.let(onPostValue)
-    })
+fun <T> LiveData<T>.reObserve(owner: LifecycleOwner, observer: Observer<T>) {
+    removeObserver(observer)
+    observe(owner, observer)
 }
 
 fun <T> Response<T>.getResult(
