@@ -2,22 +2,18 @@ package com.juniar.ancodev.sinauneh.feature.post
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.juniar.ancodev.sinauneh.R
-import com.juniar.ancodev.sinauneh.base.BaseFragment
 import com.juniar.ancodev.sinauneh.data.PostModel
-import com.juniar.ancodev.sinauneh.utils.DiffCallback
-import com.juniar.ancodev.sinauneh.utils.GeneralRecyclerViewAdapter
-import kotlinx.android.synthetic.main.fragment_post.rv_post
-import kotlinx.android.synthetic.main.viewholder_post.view.tv_body
-import kotlinx.android.synthetic.main.viewholder_post.view.tv_title
+import id.nyoman.core.base.BaseFragment
+import id.nyoman.core.utils.DiffCallback
+import id.nyoman.core.utils.GeneralRecyclerViewAdapter
+import kotlinx.android.synthetic.main.fragment_post.*
+import kotlinx.android.synthetic.main.viewholder_post.view.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 

@@ -1,4 +1,4 @@
-package com.juniar.ancodev.sinauneh.base
+package id.nyoman.core.base
 
 sealed class ResponseResult<out T> {
 

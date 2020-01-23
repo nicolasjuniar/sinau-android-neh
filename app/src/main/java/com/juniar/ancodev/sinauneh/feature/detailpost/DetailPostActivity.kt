@@ -2,7 +2,7 @@ package com.juniar.ancodev.sinauneh.feature.detailpost
 
 import android.os.Bundle
 import com.juniar.ancodev.sinauneh.R
-import com.juniar.ancodev.sinauneh.base.BaseActivity
+import id.nyoman.core.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_detail_post.tv_body
 import kotlinx.android.synthetic.main.activity_detail_post.tv_title
 

@@ -1,4 +1,4 @@
-package com.juniar.ancodev.sinauneh.utils
+package id.nyoman.core.utils
 
 import android.util.Log
 import androidx.annotation.MainThread

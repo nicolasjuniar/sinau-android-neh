@@ -3,7 +3,7 @@ package com.juniar.ancodev.sinauneh.feature.profile
 import android.os.Bundle
 import android.view.View
 import com.juniar.ancodev.sinauneh.R
-import com.juniar.ancodev.sinauneh.base.BaseFragment
+import id.nyoman.core.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_profile.tv_email
 import kotlinx.android.synthetic.main.fragment_profile.tv_name
 import kotlinx.android.synthetic.main.fragment_profile.tv_phone

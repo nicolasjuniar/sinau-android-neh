@@ -11,7 +11,7 @@ import com.juniar.ancodev.sinauneh.BuildConfig.BASE_URL
 import com.juniar.ancodev.sinauneh.NetworkInterceptor
 import com.juniar.ancodev.sinauneh.network.NetworkRepository
 import com.juniar.ancodev.sinauneh.network.NetworkService
-import com.juniar.ancodev.sinauneh.utils.DiffCallback
+import id.nyoman.core.utils.DiffCallback
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.module.Module

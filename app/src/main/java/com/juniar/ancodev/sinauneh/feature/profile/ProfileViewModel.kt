@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.juniar.ancodev.sinauneh.data.UserModel
 import com.juniar.ancodev.sinauneh.network.NetworkRepository
-import com.juniar.ancodev.sinauneh.utils.getResult
+import id.nyoman.core.utils.getResult
 import kotlinx.coroutines.launch
 
 class ProfileViewModel(private val networkRepository: NetworkRepository) : ViewModel() {

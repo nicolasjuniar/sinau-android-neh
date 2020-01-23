@@ -1,13 +1,10 @@
-package com.juniar.ancodev.sinauneh.base
+package id.nyoman.core.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.juniar.ancodev.sinauneh.utils.reObserve
 
 abstract class BaseActivity(@LayoutRes layoutId: Int) : AppCompatActivity(layoutId) {
 

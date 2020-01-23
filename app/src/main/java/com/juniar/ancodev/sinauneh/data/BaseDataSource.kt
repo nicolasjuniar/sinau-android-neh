@@ -2,8 +2,8 @@ package com.juniar.ancodev.sinauneh.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.juniar.ancodev.sinauneh.base.ResponseResult
-import com.juniar.ancodev.sinauneh.base.ResponseWrapper
+import id.nyoman.core.base.ResponseResult
+import id.nyoman.core.base.ResponseWrapper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

@@ -8,9 +8,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.juniar.ancodev.sinauneh.data.PostModel
 import com.juniar.ancodev.sinauneh.network.NetworkRepository
-import com.juniar.ancodev.sinauneh.utils.SingleLiveEvent
-import com.juniar.ancodev.sinauneh.utils.getResult
-import com.juniar.ancodev.sinauneh.utils.transformErrorResponse
+import id.nyoman.core.utils.SingleLiveEvent
+import id.nyoman.core.utils.getResult
+import id.nyoman.core.utils.transformErrorResponse
 import kotlinx.coroutines.launch
 import timber.log.Timber
 

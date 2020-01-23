@@ -6,7 +6,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.juniar.ancodev.sinauneh.R
-import com.juniar.ancodev.sinauneh.base.BaseActivity
+import id.nyoman.core.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.nav_view
 
 class MainActivity : BaseActivity(R.layout.activity_main) {

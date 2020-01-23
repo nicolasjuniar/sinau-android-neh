@@ -1,10 +1,10 @@
-package com.juniar.ancodev.sinauneh.base
+package id.nyoman.core.base
 
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.juniar.ancodev.sinauneh.utils.reObserve
+import id.nyoman.core.utils.reObserve
 
 abstract class BaseFragment(@LayoutRes layoutId: Int) : Fragment(layoutId) {
 

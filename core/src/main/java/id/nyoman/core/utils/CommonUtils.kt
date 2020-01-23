@@ -1,4 +1,4 @@
-package com.juniar.ancodev.sinauneh.utils
+package id.nyoman.core.utils
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.juniar.ancodev.sinauneh.data.ErrorResponse
+import id.nyoman.core.data.ErrorResponse
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Response
