@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.juniar.ancodev.sinauneh.data.UserModel
-import com.juniar.ancodev.sinauneh.network.NetworkRepository
+import id.nyoman.core.data.UserModel
+import id.nyoman.core.network.NetworkRepository
 import id.nyoman.core.utils.getResult
 import kotlinx.coroutines.launch
 

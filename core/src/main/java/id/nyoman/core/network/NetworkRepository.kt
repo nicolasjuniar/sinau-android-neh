@@ -1,4 +1,4 @@
-package com.juniar.ancodev.sinauneh.network
+package id.nyoman.core.network
 
 class NetworkRepository(private val networkService: NetworkService) {
 

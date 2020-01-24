@@ -6,11 +6,10 @@ import org.koin.android.ext.koin.androidContext
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.juniar.ancodev.sinauneh.BuildConfig
 import com.juniar.ancodev.sinauneh.BuildConfig.BASE_URL
 import com.juniar.ancodev.sinauneh.NetworkInterceptor
-import com.juniar.ancodev.sinauneh.network.NetworkRepository
-import com.juniar.ancodev.sinauneh.network.NetworkService
+import id.nyoman.core.network.NetworkRepository
+import id.nyoman.core.network.NetworkService
 import id.nyoman.core.utils.DiffCallback
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

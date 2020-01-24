@@ -1,4 +1,4 @@
-package com.juniar.ancodev.sinauneh.data
+package id.nyoman.core.data
 
 import com.google.gson.annotations.SerializedName
 

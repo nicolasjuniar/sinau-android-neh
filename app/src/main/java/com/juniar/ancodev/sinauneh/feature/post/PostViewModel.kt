@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.juniar.ancodev.sinauneh.data.PostModel
-import com.juniar.ancodev.sinauneh.network.NetworkRepository
+import id.nyoman.core.data.PostModel
+import id.nyoman.core.network.NetworkRepository
 import id.nyoman.core.utils.SingleLiveEvent
 import id.nyoman.core.utils.getResult
 import id.nyoman.core.utils.transformErrorResponse

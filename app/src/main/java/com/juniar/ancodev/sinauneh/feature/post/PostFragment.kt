@@ -8,8 +8,8 @@ import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.juniar.ancodev.sinauneh.R
-import com.juniar.ancodev.sinauneh.data.PostModel
 import id.nyoman.core.base.BaseFragment
+import id.nyoman.core.data.PostModel
 import id.nyoman.core.utils.DiffCallback
 import id.nyoman.core.utils.GeneralRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_post.*
