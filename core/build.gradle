@@ -18,9 +18,27 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://jsonplaceholder.typicode.com/"'
+//            buildConfigField "String", "BASE_URL", '"https://s-coro.baggrek.com/mobile/api/v1/"'
         }
+        debug {
+            minifyEnabled false
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", '"https://jsonplaceholder.typicode.com/"'
+//            buildConfigField "String", "BASE_URL", '"https://s-coro.baggrek.com/mobile/api/v1/"'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
 }
@@ -59,4 +77,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //Chucker
+    debugImplementation "com.github.ChuckerTeam.Chucker:library:$chucker_version"
+    releaseImplementation "com.github.ChuckerTeam.Chucker:library-no-op:$chucker_version"
 }

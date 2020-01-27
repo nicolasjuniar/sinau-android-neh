@@ -1,4 +1,4 @@
-package com.juniar.ancodev.sinauneh.module
+package id.nyoman.core.koin
 
 import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerInterceptor
@@ -6,8 +6,8 @@ import org.koin.android.ext.koin.androidContext
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.juniar.ancodev.sinauneh.BuildConfig.BASE_URL
-import com.juniar.ancodev.sinauneh.NetworkInterceptor
+import id.nyoman.core.BuildConfig.BASE_URL
+import id.nyoman.core.network.NetworkInterceptor
 import id.nyoman.core.network.NetworkRepository
 import id.nyoman.core.network.NetworkService
 import id.nyoman.core.utils.DiffCallback

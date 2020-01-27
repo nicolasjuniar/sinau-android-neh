@@ -78,7 +78,4 @@ dependencies {
 
     implementation project(path: ':core')
 
-    //Chucker
-    debugImplementation "com.github.ChuckerTeam.Chucker:library:$chucker_version"
-    releaseImplementation "com.github.ChuckerTeam.Chucker:library-no-op:$chucker_version"
 }
