@@ -1,9 +1,12 @@
 package id.nyoman.core.utils
 
+import android.content.Context
+import android.widget.ImageView
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import id.nyoman.core.data.ErrorResponse
@@ -34,4 +37,12 @@ fun ResponseBody.transformErrorResponse(): ErrorResponse {
     return Gson().fromJson(JSONObject(this.string()).toString())
 }
 
-inline fun <reified T> Gson.fromJson(json: String): T = this.fromJson<T>(json, object : TypeToken<T>() {}.type)
+inline fun <reified T> Gson.fromJson(json: String): T =
+    this.fromJson<T>(json, object : TypeToken<T>() {}.type)
+
+fun ImageView.loadImage(url: String, context: Context) {
+    Glide.with(context)
+        .load(url)
+        .centerCrop()
+        .into(this)
+}

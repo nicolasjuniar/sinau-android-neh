@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_post"
-        android:icon="@drawable/ic_content_paste_24dp"
-        android:title="@string/title_post" />
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/icon_home"
+        android:title="@string/home_title"/>
 
     <item
-        android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_person_24dp"
-        android:title="@string/title_profile" />
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/icon_search"
+        android:title="@string/search_title"/>
+
+    <item
+        android:id="@+id/navigation_rank"
+        android:icon="@drawable/icon_crown"
+        android:title="@string/rank_title"/>
+
+    <item
+        android:id="@+id/navigation_favorite"
+        android:icon="@drawable/icon_love"
+        android:title="@string/favorite_title"/>
+
 
 </menu>

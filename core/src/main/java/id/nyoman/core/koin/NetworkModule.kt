@@ -7,6 +7,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import id.nyoman.core.BuildConfig.BASE_URL
+import id.nyoman.core.network.HeaderInterceptor
 import id.nyoman.core.network.NetworkInterceptor
 import id.nyoman.core.network.NetworkRepository
 import id.nyoman.core.network.NetworkService
@@ -57,6 +58,7 @@ object NetworkModule {
             .writeTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .connectTimeout(REQUEST_TIMEOUT.toLong(), TimeUnit.SECONDS)
             .addInterceptor(httpLoggingInterceptor)
+            .addInterceptor(HeaderInterceptor() )
             .addInterceptor(ChuckerInterceptor(context))
             .build()
 

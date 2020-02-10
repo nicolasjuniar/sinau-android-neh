@@ -2,4 +2,8 @@
     <string name="app_name">Sinau Neh</string>
     <string name="title_profile">Profile</string>
     <string name="title_post">Post</string>
+    <string name="home_title">Home</string>
+    <string name="search_title">Search</string>
+    <string name="rank_title">Rank</string>
+    <string name="favorite_title">Favorite</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.juniar.ancodev.sinauneh.feature.post
+package com.juniar.ancodev.sinauneh.feature.home
 
 import android.os.Parcelable
 import android.util.Log
@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import id.nyoman.core.data.PostModel
+import id.nyoman.core.data.MovieModel
 import id.nyoman.core.network.NetworkRepository
 import id.nyoman.core.utils.SingleLiveEvent
 import id.nyoman.core.utils.getResult
@@ -14,10 +14,10 @@ import id.nyoman.core.utils.transformErrorResponse
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class PostViewModel(private val networkRepository: NetworkRepository) : ViewModel() {
+class HomeViewModel(private val networkRepository: NetworkRepository) : ViewModel() {
 
 
-    val liveDataPost = MutableLiveData<List<PostModel>>()
+    val liveDataNowPlaying = MutableLiveData<List<MovieModel>>()
 
     private val testActive = SingleLiveEvent<Boolean>()
 
@@ -31,18 +31,17 @@ class PostViewModel(private val networkRepository: NetworkRepository) : ViewMode
 //        login("nico@gmail.com", "123456")
     }
 
-    fun getAllPost() = viewModelScope.launch {
-        networkRepository.getAllPosts().getResult({
-            it.body()?.let { list ->
-                testActive.value = list.isNotEmpty()
-                isFirst.value = list.isNotEmpty()
-                liveDataPost.postValue(list)
+    fun getNowPlaying() = viewModelScope.launch {
+        networkRepository.getNowPlaying().getResult({
+            it.body()?.let { response ->
+                liveDataNowPlaying.postValue(response.results)
             }
         }, {
-            Timber.d("error", it.message.orEmpty())
+            Timber.d(it.message.orEmpty())
         })
     }
-    fun observetestActive() : SingleLiveEvent<Boolean> = testActive
+
+    fun observetestActive(): SingleLiveEvent<Boolean> = testActive
 
     fun observeIsFirst(): LiveData<Boolean> = isFirst
 
