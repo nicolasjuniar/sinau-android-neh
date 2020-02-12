@@ -1,5 +1,6 @@
 package id.nyoman.core.data
 
+import androidx.recyclerview.widget.DiffUtil
 import com.google.gson.annotations.SerializedName
 
 data class NowPlayingResponse(
@@ -8,7 +9,7 @@ data class NowPlayingResponse(
     @SerializedName("page")
     val page: Int?,
     @SerializedName("results")
-    val results: List<MovieModel>?,
+    val results: List<MovieModel>,
     @SerializedName("total_pages")
     val totalPages: Int?,
     @SerializedName("total_results")
@@ -51,4 +52,18 @@ data class MovieModel(
     val voteAverage: Double?,
     @SerializedName("vote_count")
     val voteCount: Int?
-)
+) {
+    companion object {
+        val diffItemCallback = object : DiffUtil.ItemCallback<MovieModel>() {
+
+            override fun areItemsTheSame(oldItem: MovieModel, newItem: MovieModel): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(oldItem: MovieModel, newItem: MovieModel): Boolean {
+                return oldItem == newItem
+            }
+
+        }
+    }
+}

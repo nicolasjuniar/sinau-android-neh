@@ -2,10 +2,12 @@ package id.nyoman.core.utils
 
 import android.content.Context
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -46,3 +48,14 @@ fun ImageView.loadImage(url: String, context: Context) {
         .centerCrop()
         .into(this)
 }
+
+fun Context.showToast(message: String, isLong: Boolean = false) {
+    Toast.makeText(this, message, if (isLong) Toast.LENGTH_LONG else Toast.LENGTH_SHORT)
+}
+
+fun configPagedList(initialSize: Int, loadSize: Int, enablePlaceholder: Boolean = false) =
+    PagedList.Config.Builder()
+        .setPageSize(initialSize)
+        .setInitialLoadSizeHint(loadSize)
+        .setEnablePlaceholders(enablePlaceholder)
+        .build()

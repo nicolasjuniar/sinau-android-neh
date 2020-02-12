@@ -1,44 +1,60 @@
 package com.juniar.ancodev.sinauneh.feature.home
 
-import android.os.Parcelable
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
+import id.nyoman.core.State
 import id.nyoman.core.data.MovieModel
 import id.nyoman.core.network.NetworkRepository
-import id.nyoman.core.utils.SingleLiveEvent
-import id.nyoman.core.utils.getResult
-import id.nyoman.core.utils.transformErrorResponse
+import id.nyoman.core.utils.*
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class HomeViewModel(private val networkRepository: NetworkRepository) : ViewModel() {
 
+    var listMovie: LiveData<PagedList<MovieModel>>
 
-    val liveDataNowPlaying = MutableLiveData<List<MovieModel>>()
+    var stateLiveData = MutableLiveData<State>()
+
+    private val movieDataSourceFactory: GeneralDataSourceFactory<MovieModel> =
+        GeneralDataSourceFactory(networkRepository, this, { _, callback ->
+            updateState(State.LOADING)
+            viewModelScope.launch {
+                networkRepository.getNowPlaying().getResult({
+                    updateState(State.DONE)
+                    it.body()?.let { response ->
+                        callback.onResult(response.results, null, 2)
+                    }
+                }, {
+                    updateState(State.ERROR)
+                    callback.onError(it)
+                })
+            }
+        }, { params, callback ->
+            updateState(State.LOADING)
+            viewModelScope.launch {
+                networkRepository.getNowPlaying().getResult({
+                    updateState(State.DONE)
+                    it.body()?.let { response ->
+                        callback.onResult(response.results, params.key + 1)
+                    }
+                }, {
+                    updateState(State.ERROR)
+                    callback.onError(it)
+                })
+            }
+        })
 
     private val testActive = SingleLiveEvent<Boolean>()
 
     private val isFirst = MutableLiveData<Boolean>()
 
-    var state: Parcelable? = null
-
     init {
-        testActive.value = false
-        isFirst.value = false
-//        login("nico@gmail.com", "123456")
+        listMovie = LivePagedListBuilder(movieDataSourceFactory, configPagedList(10, 10)).build()
     }
 
-    fun getNowPlaying() = viewModelScope.launch {
-        networkRepository.getNowPlaying().getResult({
-            it.body()?.let { response ->
-                liveDataNowPlaying.postValue(response.results)
-            }
-        }, {
-            Timber.d(it.message.orEmpty())
-        })
+    fun listIsEmpty(): Boolean {
+        return listMovie.value?.isEmpty() ?: true
     }
 
     fun observetestActive(): SingleLiveEvent<Boolean> = testActive
@@ -63,5 +79,9 @@ class HomeViewModel(private val networkRepository: NetworkRepository) : ViewMode
         }, {
             Log.d("error", it.message.orEmpty())
         })
+    }
+
+    private fun updateState(state: State) {
+        stateLiveData.postValue(state)
     }
 }
