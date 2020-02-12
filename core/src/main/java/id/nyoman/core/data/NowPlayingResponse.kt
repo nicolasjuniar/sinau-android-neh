@@ -52,18 +52,4 @@ data class MovieModel(
     val voteAverage: Double?,
     @SerializedName("vote_count")
     val voteCount: Int?
-) {
-    companion object {
-        val diffItemCallback = object : DiffUtil.ItemCallback<MovieModel>() {
-
-            override fun areItemsTheSame(oldItem: MovieModel, newItem: MovieModel): Boolean {
-                return oldItem == newItem
-            }
-
-            override fun areContentsTheSame(oldItem: MovieModel, newItem: MovieModel): Boolean {
-                return oldItem == newItem
-            }
-
-        }
-    }
-}
+)

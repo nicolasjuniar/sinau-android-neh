@@ -17,7 +17,7 @@ class HomeViewModel(private val networkRepository: NetworkRepository) : ViewMode
     var stateLiveData = MutableLiveData<State>()
 
     private val movieDataSourceFactory: GeneralDataSourceFactory<MovieModel> =
-        GeneralDataSourceFactory(networkRepository, this, { _, callback ->
+        GeneralDataSourceFactory({ _, callback ->
             updateState(State.LOADING)
             viewModelScope.launch {
                 networkRepository.getNowPlaying().getResult({
